@@ -133,12 +133,29 @@ header h1 img {
 }
 
 .rmn .detail,
-.rmn .clicked .summary {
+.rmn.clicked .summary {
   display: none;
 }
-.rmn .clicked .detail,
+.rmn.clicked .detail,
 .rmn .summary {
   display: block;
+}
+
+.rmn .sleep-msg {
+  display: none;
+}
+
+.rmn.sleep div.info-packet {
+  display: none;
+}
+.rmn.sleep div.info-device .summary,
+.rmn.sleep div.info-device .detail {
+  display: none;
+}
+.rmn.sleep div.info-device .sleep-msg {
+  display: block;
+  font-size: 1.3em;
+  line-height: 4.5em;
 }
 
 div.about-app {

@@ -52,7 +52,8 @@ var app = new Vue({
     },
     rmnData: [],
     info: {
-      isClicked: false
+      isClicked: false,
+      isSleep: false,
     },
   },
   methods: {
@@ -92,15 +93,19 @@ var app = new Vue({
     faceMode() {
       let now = (new Date()).getTime();
       if(this.rmnData.length > 0) {
-        return ((now - this.rmnData[0].t) < 60 * 60 * 1000) ? 
-                  "wake" : "sleep";
-      } else {
-        return "wake";
+        if((now - this.rmnData[0].t) > 60 * 60 * 1000
+            || this.rmnData[0].battery < 0) {
+          this.info.isSleep = true;
+          return "sleep";
+        }
       }
+      this.info.isSleep = false;
+      return "wake";
     },
     clock() {
-      return "<small>" + Util.getDateStr(this.rmnData[0].t) + "</small>" +
-             "<span>" + Util.getTimeStr(this.rmnData[0].t) + "</span>";
+      let t = (this.info.isSleep) ? (new Date()).getTime() : this.rmnData[0].t;
+      return "<small>" + Util.getDateStr(t) + "</small>" +
+             "<span>" + Util.getTimeStr(t) + "</span>";
     }
   }
 });
