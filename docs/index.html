@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <title>森見守者（もりみまもりもん）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -18,10 +21,11 @@
     <img src="img/rmn-body.png">
     <img src="img/rmn-frame.png">
     <img src="img/rmn-arm-r.png">
-    <img src="img/rmn-face.png">
+    <img :src="'img/rmn-face-' + faceMode + '.png'">
     <img src="img/rmn-arm-l.png">
   </div>
   <div v-if="rmnData.length > 0">
+    <div class="info-clock" v-html="clock"></div>
     <div class="info-packet">
       <dl>
         <dt>電波</dt>

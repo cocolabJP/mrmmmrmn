@@ -15,6 +15,19 @@ const Util = {
             + ':' + ('0' + d.getMinutes()).slice(-2)
             + ':' + ('0' + d.getSeconds()).slice(-2);
   },
+  getDateStr: (timestamp) => {
+    var d = new Date(timestamp);
+    return d.getFullYear()
+            + '/' + ('0' + (d.getMonth() + 1)).slice(-2)
+            + '/' + ('0' + d.getDate()).slice(-2)
+            + ' (' + '日月火水木金土'[d.getDay()] + ')';
+  },
+  getTimeStr: (timestamp) => {
+    var d = new Date(timestamp);
+    return ('0' + d.getHours()).slice(-2)
+            + ':' + ('0' + d.getMinutes()).slice(-2)
+            + ':' + ('0' + d.getSeconds()).slice(-2);
+  },
   getTimeago: (timestamp) => {
     var d = new Date(Util.getCurrentTime() - timestamp);
     if(d.getUTCMonth())         { return d.getUTCMonth() - 1 + 'ヶ月前'  }
@@ -31,7 +44,7 @@ var app = new Vue({
     isLoading: false,
     isLoaded : false,
     option: {
-      start_at: null,
+      start_at: 0,
       end_at: null,
       area: 5002,
       type: 1,
@@ -66,12 +79,23 @@ var app = new Vue({
         });  
     },
     setCurrentTime: function(offset) {
-      this.option.start_at = parseInt(Util.getCurrentTime()/1000 - 60 * 60); // 60 min
       this.option.end_at   = parseInt(Util.getCurrentTime()/1000      );
     },
   },
   computed: {
-    targetPeriod: function() { return Util.getDatetimeStr(this.option.start_at*1000) + " 〜 " + Util.getDatetimeStr(this.option.end_at*1000); },
+    faceMode() {
+      let now = (new Date()).getTime();
+      if(this.rmnData.length > 0) {
+        return ((now - this.rmnData[0].t) < 60 * 60 * 1000) ? 
+                  "wake" : "sleep";
+      } else {
+        return "wake";
+      }
+    },
+    clock() {
+      return "<small>" + Util.getDateStr(this.rmnData[0].t) + "</small>" +
+             "<span>" + Util.getTimeStr(this.rmnData[0].t) + "</span>";
+    }
   }
 });
 
