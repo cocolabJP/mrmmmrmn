@@ -50,7 +50,10 @@ var app = new Vue({
       type: 1,
       page: null
     },
-    rmnData: []
+    rmnData: [],
+    info: {
+      isClicked: false
+    }
   },
   methods: {
     getData: function() {
@@ -81,6 +84,10 @@ var app = new Vue({
     setCurrentTime: function(offset) {
       this.option.end_at   = parseInt(Util.getCurrentTime()/1000      );
     },
+    toggleView: function(e) {
+      this.info.isClicked = !(this.info.isClicked);
+      console.log(this.info.isClicked);
+    }
   },
   computed: {
     faceMode() {

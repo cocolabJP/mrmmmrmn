@@ -26,16 +26,24 @@
   </div>
   <div v-if="rmnData.length > 0">
     <div class="info-clock" v-html="clock"></div>
-    <div class="info-packet">
-      <dl>
-        <dt>電波</dt>
+    <div class="info-packet" :class="{'clicked': info.isClicked}" @click.stop="toggleView">
+      <div class="summary">
+        <span><img src="img/ic-people.png">×<b>{{ rmnData[0].apple }}</b></span>
+        <span><img src="img/ic-device.png">×<b>{{ rmnData[0].packet }}</b></span>
+      </div>
+      <dl class="detail">
+        <dt>観測した人</dt>
+        <dd><b>{{ rmnData[0].apple }}</b>人</dd>
+        <dt>観測した電波</dt>
         <dd><b>{{ rmnData[0].packet }}</b>シグナル</dd>
-        <dt>iPhoneなど</dt>
-        <dd><b>{{ rmnData[0].apple }}</b>デバイス</dd>
       </dl>
     </div>
-    <div class="info-device">
-      <dl>
+    <div class="info-device" :class="{'clicked': info.isClicked}" @click.stop="toggleView">
+      <div class="summary">
+        <span><img src="img/ic-temp.png"><b>{{ rmnData[0].cpuTemp }}</b>℃</span>
+        <span><img src="img/ic-battery.png"><b>{{ rmnData[0].battery }}</b>%</span>
+      </div>
+      <dl class="detail">
         <dt>CPU温度</dt>
         <dd><b>{{ rmnData[0].cpuTemp }}</b>℃</dd>
         <dt>バッテリー残量</dt>
