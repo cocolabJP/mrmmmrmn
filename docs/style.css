@@ -11,7 +11,7 @@
 }
 
 html, body {
-  line-height: 1;
+  line-height: 1.2;
   font-family: "Kiwi Maru", sans-serif;
   background: #e0d3c3;
 }
@@ -57,7 +57,7 @@ header h1 img {
   position: absolute;
   width: 50%;
   left: 25%;
-  top: 2%;
+  top: 1%;
   text-align: center;
   font-size: calc(min(100vw, 1000px)/35);
 }
@@ -139,4 +139,30 @@ header h1 img {
 .rmn .clicked .detail,
 .rmn .summary {
   display: block;
+}
+
+div.about-app {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+div.about-app h2 {
+  font-size: 1.2rem;
+}
+div.about-app p {
+  max-width: 500px;
+  padding: 5px 0;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+footer {
+  padding: 10px 20px 30px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer small {
+  display: block;
+  font-size: 0.6rem;
+  opacity: 0.8;
 }

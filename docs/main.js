@@ -53,7 +53,7 @@ var app = new Vue({
     rmnData: [],
     info: {
       isClicked: false
-    }
+    },
   },
   methods: {
     getData: function() {
@@ -86,7 +86,6 @@ var app = new Vue({
     },
     toggleView: function(e) {
       this.info.isClicked = !(this.info.isClicked);
-      console.log(this.info.isClicked);
     }
   },
   computed: {
