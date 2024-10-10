@@ -56,8 +56,8 @@ var app = new Vue({
               t: e.body.t * 1000,
               packet: e.body.p,
               apple: e.body.a,
-              cpuTemp: e.body.c,
-              battery: e.body.b
+              cpuTemp: Math.floor(e.body.c * 10)/10,
+              battery: Math.floor(e.body.b * 10)/10
             });
           });
         })
