@@ -9,7 +9,7 @@ const Util = {
   getDatetimeStr: (timestamp) => {
     var d = new Date(timestamp);
     return d.getFullYear()
-            + '/' + ('0' + (d.getMonth() + 1)).slice(-2)
+            + '年' + ('0' + (d.getMonth() + 1)).slice(-2)
             + '/' + ('0' + d.getDate()).slice(-2)
             + ' ' + ('0' + d.getHours()).slice(-2)
             + ':' + ('0' + d.getMinutes()).slice(-2)
@@ -18,15 +18,14 @@ const Util = {
   getDateStr: (timestamp) => {
     var d = new Date(timestamp);
     return d.getFullYear()
-            + '/' + ('0' + (d.getMonth() + 1)).slice(-2)
-            + '/' + ('0' + d.getDate()).slice(-2)
-            + ' (' + '日月火水木金土'[d.getDay()] + ')';
+            + '年' + ('0' + (d.getMonth() + 1)).slice(-2)
+            + '月' + ('0' + d.getDate()).slice(-2)
+            + '日 (' + '日月火水木金土'[d.getDay()] + ')';
   },
   getTimeStr: (timestamp) => {
     var d = new Date(timestamp);
     return ('0' + d.getHours()).slice(-2)
-            + ':' + ('0' + d.getMinutes()).slice(-2)
-            + ':' + ('0' + d.getSeconds()).slice(-2);
+            + ':' + ('0' + d.getMinutes()).slice(-2);
   },
   getTimeago: (timestamp) => {
     var d = new Date(Util.getCurrentTime() - timestamp);

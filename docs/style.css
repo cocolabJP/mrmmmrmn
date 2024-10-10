@@ -165,12 +165,20 @@ div.about-app {
 
 div.about-app h2 {
   font-size: 1.2rem;
+  margin: 0 0 10px;
 }
 div.about-app p {
   max-width: 500px;
   padding: 5px 0;
   margin: 0 auto;
   font-size: 0.9rem;
+}
+div.about-app div.footnote {
+  margin: 20px 0;
+  padding: 15px 15px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-width: 1px 0;
+  font-size: 0.8rem;
 }
 
 footer {
