@@ -93,7 +93,7 @@ var app = new Vue({
     faceMode() {
       let now = (new Date()).getTime();
       if(this.rmnData.length > 0) {
-        if((now - this.rmnData[0].t) > 60 * 60 * 1000
+        if((now - this.rmnData[0].t) > 60 * 10 * 1000 // 10min
             || this.rmnData[0].battery < 0) {
           this.info.isSleep = true;
           return "sleep";
