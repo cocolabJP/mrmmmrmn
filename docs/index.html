@@ -22,7 +22,7 @@
      :class="{'clicked': info.isClicked, 'sleep': info.isSleep}"
      @click.stop="toggleView">
   <div class="rmn-stack">
-    <div class="rmn-bg-color"></div>
+    <div class="rmn-bg-color" :class="rmnBackgroundColor"></div>
     <img src="img/rmn-bg.png">
     <img src="img/rmn-body.png">
     <img src="img/rmn-frame.png">

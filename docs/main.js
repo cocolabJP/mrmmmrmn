@@ -105,6 +105,13 @@ var app = new Vue({
       let t = (this.info.isSleep) ? (new Date()).getTime() : this.rmnData[0].t;
       return "<small>" + Util.getDateStr(t) + "</small>" +
              "<span>" + Util.getTimeStr(t) + "</span>";
+    },
+    rmnBackgroundColor() {
+      let h = (new Date()).getHours();
+      return "bg-" + ((this.info.isSleep) ? "night"
+                       : (h < 10) ? "morning"
+                       : (h < 14) ? "afternoon"
+                       : (h < 18) ? "evening" : "night");
     }
   }
 });

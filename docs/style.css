@@ -42,8 +42,22 @@ header h1 img {
   top: 5%;
   width: 90%;
   height: 90%;
-  background: black;
 }
+
+.rmn .rmn-stack .rmn-bg-color.bg-night {
+  background: #080051;
+}
+.rmn .rmn-stack .rmn-bg-color.bg-morning {
+  background: #5071bc;
+}
+.rmn .rmn-stack .rmn-bg-color.bg-afternoon {
+  background: #52bbe8;
+}
+.rmn .rmn-stack .rmn-bg-color.bg-evening {
+  background: #fcae78;
+}
+
+
 
 .rmn .rmn-stack img {
   position: absolute;
