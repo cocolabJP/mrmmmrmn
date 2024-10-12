@@ -195,6 +195,41 @@ div.about-app div.footnote {
   font-size: 0.8rem;
 }
 
+div.log {
+  padding: 10px;
+}
+
+div.log h2 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+div.log ul  {
+  font-size: 0.8rem;
+}
+
+div.log ul li {
+  list-style: none;
+  padding: 0 0 8px;
+}
+
+div.log ul li time {
+  font-size: 0.6rem;
+  display: block;
+  padding: 0 0 2px;
+}
+
+div.log ul li img {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 3px;
+}
+
+
+
+
 footer {
   padding: 10px 20px 30px;
   text-align: center;

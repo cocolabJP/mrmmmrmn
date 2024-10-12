@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;500&display=swap" rel="stylesheet">
-  <link href="style.css?v=0.2" rel="stylesheet" type="text/css">
+  <link href="style.css?v=0.3" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">
@@ -78,6 +78,18 @@
     <sup>＊</sup> IoT： Internet of Thingsの略語。インターネットに繋がったモノを意味します。
   </div>
 </div>
+<div class="log">
+  <h2>交信の記録</h2>
+  <ul>
+    <li v-for="d in rmnData">
+      <time>{{ getDateTimeStr(d.t) }}</time>
+      <img src="img/ic-people.png">×{{ d.apple }}人
+      <img src="img/ic-device.png">×{{ d.packet }}シグナル
+      <img src="img/ic-temp.png">{{ d.cpuTemp }}℃
+      <img src="img/ic-battery.png">{{ d.battery }}%
+    </li>
+  </ul>
+</div>
 <footer>
   &copy; Yuki Matsuda
   <small>(Convivial Computing Lab., Okayama Univ.)</small>
@@ -85,6 +97,6 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="main.js?v=0.2"></script>
+<script src="main.js?v=0.3"></script>
 </body>
 </html>

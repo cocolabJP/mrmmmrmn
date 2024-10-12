@@ -9,11 +9,10 @@ const Util = {
   getDatetimeStr: (timestamp) => {
     var d = new Date(timestamp);
     return d.getFullYear()
-            + '年' + ('0' + (d.getMonth() + 1)).slice(-2)
+            + '/' + ('0' + (d.getMonth() + 1)).slice(-2)
             + '/' + ('0' + d.getDate()).slice(-2)
             + ' ' + ('0' + d.getHours()).slice(-2)
-            + ':' + ('0' + d.getMinutes()).slice(-2)
-            + ':' + ('0' + d.getSeconds()).slice(-2);
+            + ':' + ('0' + d.getMinutes()).slice(-2);
   },
   getDateStr: (timestamp) => {
     var d = new Date(timestamp);
@@ -86,13 +85,16 @@ var app = new Vue({
     },
     toggleView: function(e) {
       this.info.isClicked = !(this.info.isClicked);
+    },
+    getDateTimeStr(t) {
+      return Util.getDatetimeStr(t) + "（" + Util.getTimeago(t) + "）";
     }
   },
   computed: {
     faceMode() {
       let now = (new Date()).getTime();
       if(this.rmnData.length > 0) {
-        if((now - this.rmnData[0].t) > 60 * 10 * 1000 // 10min
+        if((now - this.rmnData[0].t) > 60 * 600 * 1000 // 60min
             || this.rmnData[0].battery < 0) {
           this.info.isSleep = true;
           return "sleep";
