@@ -197,21 +197,34 @@ div.about-app div.footnote {
 
 div.log {
   padding: 10px;
+  text-align: center;
 }
 
 div.log h2 {
   font-size: 1.2rem;
   margin: 0 0 10px;
-  text-align: center;
+}
+
+div.log p {
+  font-size: 0.8rem;
+  max-width: 500px;
+  padding: 5px 10px;
+  margin: 0 auto;
 }
 
 div.log ul  {
   font-size: 0.8rem;
+  padding: 0 20px;
 }
 
 div.log ul li {
   list-style: none;
   padding: 0 0 8px;
+  line-height: 1em;
+}
+
+div.log ul li * {
+  vertical-align: middle;
 }
 
 div.log ul li time {
@@ -221,10 +234,22 @@ div.log ul li time {
 }
 
 div.log ul li img {
+  position: relative;
+  top: -1px;
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 3px;
+  width: 14px;
+  height: 14px;
+  margin: 0 5px;
+}
+
+div.log ul li time + img {
+  margin: 0 5px 0 0;
+}
+
+div.log ul li span {
+  padding: 0 2px;
+  font-size: 0.7em;
+  margin: 0 5px 0 0;
 }
 
 

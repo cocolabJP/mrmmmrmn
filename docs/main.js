@@ -42,7 +42,7 @@ var app = new Vue({
     isLoading: false,
     isLoaded : false,
     option: {
-      start_at: 0,
+      start_at: 1728687600,
       end_at: null,
       area: 5002,
       type: 1,
@@ -88,6 +88,9 @@ var app = new Vue({
     },
     getDateTimeStr(t) {
       return Util.getDatetimeStr(t) + "（" + Util.getTimeago(t) + "）";
+    },
+    getBatteryStr(b) {
+      return (b >= 0) ? b.toFixed(1) : "0.0";
     }
   },
   computed: {

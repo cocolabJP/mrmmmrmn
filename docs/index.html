@@ -46,14 +46,14 @@
     </div>
     <div class="info-device">
       <div class="summary">
-        <span><img src="img/ic-temp.png"><b>{{ rmnData[0].cpuTemp }}</b>℃</span>
+        <span><img src="img/ic-temp.png"><b>{{ rmnData[0].cpuTemp.toFixed(1) }}</b>℃</span>
         <span><img src="img/ic-battery.png"><b>{{ rmnData[0].battery }}</b>%</span>
       </div>
       <dl class="detail">
         <dt>CPU温度</dt>
         <dd><b>{{ rmnData[0].cpuTemp }}</b>℃</dd>
         <dt>バッテリー残量</dt>
-        <dd><b>{{ rmnData[0].battery }}</b>%</dd>
+        <dd><b>{{ getBatteryStr(rmnData[0].battery) }}</b>%</dd>
       </dl>
       <div class="sleep-msg">睡眠中...</div>
     </div>
@@ -79,14 +79,17 @@
   </div>
 </div>
 <div class="log">
-  <h2>交信の記録</h2>
+  <h2>「りもん」の交信記録</h2>
+  <p>
+    「りもん」は少し恥ずかしがりやなので、人がたくさんいるときは交信をやめてしまうことがあります（通信帯域が不足するなど、通信途絶の状況が発生することがあります）。
+  </p>
   <ul>
     <li v-for="d in rmnData">
       <time>{{ getDateTimeStr(d.t) }}</time>
-      <img src="img/ic-people.png">×{{ d.apple }}人
-      <img src="img/ic-device.png">×{{ d.packet }}シグナル
-      <img src="img/ic-temp.png">{{ d.cpuTemp }}℃
-      <img src="img/ic-battery.png">{{ d.battery }}%
+      <img src="img/ic-people.png">{{ d.apple }}<span>人</span>
+      <img src="img/ic-device.png">{{ d.packet }}<span>シグナル</span>
+      <img src="img/ic-temp.png">{{ d.cpuTemp.toFixed(1) }}<span>℃</span>
+      <img src="img/ic-battery.png">{{ getBatteryStr(d.battery) }}<span>%</span>
     </li>
   </ul>
 </div>
